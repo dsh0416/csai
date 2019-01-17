@@ -15,7 +15,7 @@ ROOT_ROUTE = proc do
       360.times.to_a.map do |i|
         vec[i].round(5) * Sequel["hue_#{i}".to_sym]
       end.reduce(:+).as(similarity)
-    }.order(Sequel.desc(:similarity)).limit(10).each do |a|
+    }.order(Sequel.desc(:similarity)).limit(3).each do |a|
       @fingerprints << a
     end
     erb :search
