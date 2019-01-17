@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Search</title>
+  </head>
+  <body>
+    <h1>Search Result</h1>
+    <% @fingerprints.each do |fingerprint| %>
+      <div>
+      <ul>
+        <li> Anime: <%= fingerprint.video.anime.name %> </li>
+        <li> Video: <%= fingerprint.video.name %> </li>
+        <li> Seek Time: <%= fingerprint.timestamps %> seconds </li>
+      </ul>
+      <img src="data:image/jpeg;base64,<%=Base64.strict_encode64(fingerprint.image)%>" />
+      </div>
+    <%end %>
+  </body>
+</html>
